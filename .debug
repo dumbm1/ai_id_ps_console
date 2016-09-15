@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <ExtensionList>
-    <Extension Id="com.wk.console_002">
+    <Extension Id="com.wk.console_wk">
         <HostList>
 
             <!-- Comment Host tags according to the apps you want your panel to support -->
@@ -8,7 +8,8 @@
             <!-- Illustrator -->
             <Host Name="ILST" Port="8088"/>
             <Host Name="IDSN" Port="8088"/>
-                        
+            <Host Name="PSXS" Port="8088"/>
+
         </HostList>
     </Extension>
 </ExtensionList>

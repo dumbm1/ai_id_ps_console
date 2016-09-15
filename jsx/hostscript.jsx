@@ -34,3 +34,7 @@ function evalStr (str) {
   }
   return res;
 }
+
+function saveCode(str){
+  return str;
+}

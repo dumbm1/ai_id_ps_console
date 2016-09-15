@@ -26,28 +26,51 @@
         </div>
         <div class="row float-left">
             <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
-                <option>documents</option>
-                <option>activeDocument</option>
-                <option>layers</option>
-                <option>activeLayer</option>
-                <option>textFrames</option>
-                <option>textRanges</option>
-                <option>pathItems</option>
-                <option>pageItems</option>
-                <option>selection</option>
-                <option>$.writeln</option>
-                <option>console.log</option>
-                <option>redraw();</option>
+                <optgroup label="">
+                    <option>.textRange.characterAttributes</option>
+                    <option>.compoundPathItems</option>
+                    <option>.geometricBounds</option>
+                    <option>.selectedPathPoints</option>
+                </optgroup>
+                <optgroup label="——————————">
+                    <option>ElementPlacement.INSIDE</option>
+                    <option>ElementPlacement.PLACEAFTER</option>
+                    <option>ElementPlacement.PLACEATEND</option>
+                    <option>ElementPlacement.PLACEBEFORE</option>
+                    <option>ElementPlacement.PLACEATBEGINNING</option>
+                </optgroup>
+                <optgroup label="——————————">
+                    <option>userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;</option>
+                    <option>userInteractionLevel = UserInteractionLevel.DISPLAYALERTS;</option>
+                </optgroup>
+                <optgroup label="——————————">
+                    <option>executeMenuCommand('</option>
+                    <option>getActiveArtboardIndex();</option>
+                    <option>setActiveArtboardIndex(</option>
+                </optgroup>
+                <optgroup label="——————————">
+                    <option>var d = activeDocument;</option>
+                    <option>var lay = d.activeLayer;</option>
+                    <option>var sel = selection</option>
+                    <option>var sel = selection</option>
+                </optgroup>
+                <optgroup label="——————————">
+                    <option>for (var i = 0; i < arr.length; i++) {}</option>
+                    <option>for (var i = arr.legtn; i <= 0; i--) {}</option>
+                    <option>( function func () {} () );</option>
+                    <option>switch ( string ) { case one: // ; break; default: // ; break;}</option>
+                </optgroup>
+
             </select>
             <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
         </div>
         <div class="row float-right">
-            <input id="btn_saveCode" class="hostButton btns" type="button" value="Save Code"/>
+            <input id="btn_saveCode" class="hostButton btns" type="button" value="Save"/>
             <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
-            <input id="btn_killCEP" class="hostButton btns" type="button" value="Kill CEP"/>
+            <input id="btn_close" class="hostButton btns" type="button" value="Close"/>
         </div>
         <div class="row">
-            <textarea class="hostTextarea" id="fld_return"></textarea>
+            <textarea class="hostTextarea" id="fld_return" disabled></textarea>
         </div>
 
 

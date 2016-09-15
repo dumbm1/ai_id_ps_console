@@ -17,14 +17,16 @@
     loadJSX ("json2.js");
 
     $ ("#btn_eval_js").click (function () {
-      var elem        = document.getElementById ("fld_val");
-      var elem_return = document.getElementById ('fld_return');
-      if (!elem_return.value) {
-        elem_return.value = evalInChrome (elem.value);
+      var fld_val    = document.getElementById ("fld_val");
+      var fld_return = document.getElementById ('fld_return');
+      if (!fld_return.value) {
+        fld_return.value     = evalInChrome (fld_val.value);
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
       } else {
-        elem_return.value += '\n' + evalInChrome (elem.value);
+        fld_return.value += '\n' + evalInChrome (fld_val.value);
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
       }
-      elem.focus ();
+      fld_val.focus ();
     });
     $ ("#btn_eval_jsx").click (function () {
       var elem        = document.getElementById ("fld_val");
@@ -46,11 +48,14 @@
       insertAtCursor (elem, val);
     });
     $ ("#btn_saveCode").click (function () {
-
+      var str = document.getElementById ("fld_val").value;
+      csInterface.evalScript ('saveCode("' + JSON.stringify (str) + '")', function (res) {
+        alert (res);
+      })
     });
 
     $ ("#btn_refrash").click (reloadPanel);
-    $ ("#btn_killCEP").click (function () {
+    $ ("#btn_close").click (function () {
       /*csInterface.evalScript ("killCEP()");*/
       new CSInterface ().closeExtension ();
     });
@@ -88,9 +93,11 @@
   function evalInAi (str, fld_return) {
     csInterface.evalScript ('evalStr(' + JSON.stringify (str) + ')', function (res) {
       if (!fld_return.value) {
-        fld_return.value = '[ai]: ' + res;
+        fld_return.value     = '[ai]: ' + res;
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
       } else {
         fld_return.value += '\n' + '[ai]: ' + res;
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
       }
     });
   }

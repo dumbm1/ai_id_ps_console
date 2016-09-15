@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
         Version="5.0"
-        ExtensionBundleId="com.wk.console"
-        ExtensionBundleVersion="0.3"
+        ExtensionBundleId="com.wk.console_wk"
+        ExtensionBundleVersion="0.4"
         ExtensionBundleName="console"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -18,12 +18,14 @@
         <![CDATA[The most super-simple console that based on the js function eval]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.console" Version="0.3"/>
+        <Extension Id="com.wk.console_wk" Version="0.4"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
             <Host Name="ILST" Version="17.0"/>
             <Host Name="IDSN" Version="10.0"/>
+            <Host Name="PHXS" Version="15.0"/>
+            <Host Name="PHSP" Version="15.0"/>
         </HostList>
         <LocaleList>
             <Locale Code="All"/>
@@ -33,7 +35,7 @@
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
-        <Extension Id="com.wk.console">
+        <Extension Id="com.wk.console_wk">
             <DispatchInfo>
                 <Resources>
                     <MainPath>./index.html</MainPath>
@@ -44,20 +46,20 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console v0.3</Menu>
+                    <Menu>console_wk 0.4</Menu>
                     <Geometry>
                         <Size>
                             <Height>260</Height>
                             <Width>550</Width>
                         </Size>
-                         <MinSize>
-                             <Height>260</Height>
-                             <Width>550</Width>
-                         </MinSize>
-                         <MaxSize>
-                             <Height>400</Height>
-                             <Width>550</Width>
-                         </MaxSize>
+                        <MinSize>
+                            <Height>260</Height>
+                            <Width>430</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>400</Height>
+                            <Width>550</Width>
+                        </MaxSize>
                     </Geometry>
                     <Icons>
                         <Icon Type="Normal">./icons/iconNormal.png</Icon>
