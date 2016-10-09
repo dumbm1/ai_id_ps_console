@@ -16,6 +16,26 @@
     themeManager.init ();
     loadJSX ("json2.js");
 
+    $ ("#fld_val").keyup (function (e) {
+      if (e.ctrlKey && e.keyCode == 13){
+        var fld_val    = document.getElementById ("fld_val");
+        var fld_return = document.getElementById ('fld_return');
+        if (!fld_return.value) {
+          fld_return.value     = evalInChrome (fld_val.value);
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        } else {
+          fld_return.value += '\n' + evalInChrome (fld_val.value);
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        }
+        fld_val.focus ();
+      } else if((e.metaKey || e.altKey) && e.keyCode == 13){
+        var elem        = document.getElementById ("fld_val");
+        var elem_return = document.getElementById ('fld_return');
+        evalInAi (elem.value, elem_return);
+        elem.focus ();
+      }
+    })
+
     $ ("#btn_eval_js").click (function () {
       var fld_val    = document.getElementById ("fld_val");
       var fld_return = document.getElementById ('fld_return');

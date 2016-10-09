@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="5.0"
         ExtensionBundleId="com.wk.console_wk"
-        ExtensionBundleVersion="0.4"
+        ExtensionBundleVersion="0.5"
         ExtensionBundleName="console"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -18,7 +18,7 @@
         <![CDATA[The most super-simple console that based on the js function eval]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.console_wk" Version="0.4"/>
+        <Extension Id="com.wk.console_wk" Version="0.5"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -46,7 +46,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console_wk 0.4</Menu>
+                    <Menu>console_wk 0.5</Menu>
                     <Geometry>
                         <Size>
                             <Height>260</Height>
