@@ -3,11 +3,27 @@
 <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
+    <!--<link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>-->
     <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
 
     <title>console</title>
     <style type="text/css">
+        .container-code {
+            position: relative;
+            width:    100%;
+            height:   250px;
+        }
+
+        #editor {
+            position:       absolute;
+            top:            0;
+            right:          0;
+            bottom:         0;
+            left:           0;
+            margin:         0;
+            font-size:      12px;
+            text-transform: none;
+        }
     </style>
 </head>
 
@@ -17,53 +33,56 @@
 
     <div class="block">
         <div class="row">
-            <textarea class="hostTextarea" id="fld_val" autofocus></textarea>
+            <!--<textarea class="hostTextarea" id="fld_val" autofocus></textarea>-->
+            <div class="container-code">
+                <div id="editor"></div>
+            </div>
         </div>
         <div class="row float-left">
             <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+h"/>
             <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="ctrl+i"/>
             <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="ctrl+d"/>
         </div>
-        <div class="row float-left">
-            <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
-                <optgroup label="">
-                    <option>.textRange.characterAttributes</option>
-                    <option>.compoundPathItems</option>
-                    <option>.geometricBounds</option>
-                    <option>.selectedPathPoints</option>
-                </optgroup>
-                <optgroup label="——————————">
-                    <option>ElementPlacement.INSIDE</option>
-                    <option>ElementPlacement.PLACEAFTER</option>
-                    <option>ElementPlacement.PLACEATEND</option>
-                    <option>ElementPlacement.PLACEBEFORE</option>
-                    <option>ElementPlacement.PLACEATBEGINNING</option>
-                </optgroup>
-                <optgroup label="——————————">
-                    <option>userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;</option>
-                    <option>userInteractionLevel = UserInteractionLevel.DISPLAYALERTS;</option>
-                </optgroup>
-                <optgroup label="——————————">
-                    <option>executeMenuCommand('</option>
-                    <option>getActiveArtboardIndex();</option>
-                    <option>setActiveArtboardIndex(</option>
-                </optgroup>
-                <optgroup label="——————————">
-                    <option>var d = activeDocument;</option>
-                    <option>var lay = d.activeLayer;</option>
-                    <option>var sel = selection</option>
-                    <option>var sel = selection</option>
-                </optgroup>
-                <optgroup label="——————————">
-                    <option>for (var i = 0; i < arr.length; i++) {}</option>
-                    <option>for (var i = arr.legtn; i <= 0; i--) {}</option>
-                    <option>( function func () {} () );</option>
-                    <option>switch ( string ) { case one: // ; break; default: // ; break;}</option>
-                </optgroup>
+        <!--        <div class="row float-left">
+                    <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
+                        <optgroup label="">
+                            <option>.textRange.characterAttributes</option>
+                            <option>.compoundPathItems</option>
+                            <option>.geometricBounds</option>
+                            <option>.selectedPathPoints</option>
+                        </optgroup>
+                        <optgroup label="——————————">
+                            <option>ElementPlacement.INSIDE</option>
+                            <option>ElementPlacement.PLACEAFTER</option>
+                            <option>ElementPlacement.PLACEATEND</option>
+                            <option>ElementPlacement.PLACEBEFORE</option>
+                            <option>ElementPlacement.PLACEATBEGINNING</option>
+                        </optgroup>
+                        <optgroup label="——————————">
+                            <option>userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;</option>
+                            <option>userInteractionLevel = UserInteractionLevel.DISPLAYALERTS;</option>
+                        </optgroup>
+                        <optgroup label="——————————">
+                            <option>executeMenuCommand('</option>
+                            <option>getActiveArtboardIndex();</option>
+                            <option>setActiveArtboardIndex(</option>
+                        </optgroup>
+                        <optgroup label="——————————">
+                            <option>var d = activeDocument;</option>
+                            <option>var lay = d.activeLayer;</option>
+                            <option>var sel = selection</option>
+                            <option>var sel = selection</option>
+                        </optgroup>
+                        <optgroup label="——————————">
+                            <option>for (var i = 0; i < arr.length; i++) {}</option>
+                            <option>for (var i = arr.legtn; i <= 0; i&#45;&#45;) {}</option>
+                            <option>( function func () {} () );</option>
+                            <option>switch ( string ) { case one: // ; break; default: // ; break;}</option>
+                        </optgroup>
 
-            </select>
-            <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
-        </div>
+                    </select>
+                    <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
+                </div>-->
         <div class="row float-right">
             <!--<input id="btn_saveCode" class="hostButton btns" type="button" value="Save"/>-->
             <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
@@ -79,8 +98,9 @@
 
 <script src="js/libs/CSInterface.js"></script>
 <script src="js/libs/jquery-2.0.2.min.js"></script>
-
+<script src="js/libs/underscore.js"></script>
 <script src="js/themeManager.js"></script>
+<script src="js/libs/ace.js"></script>
 <script src="js/main.js"></script>
 
 

@@ -102,7 +102,7 @@ input[type=text] {
   float: right;
 }
 
-#fld_return, #fld_val {
+#fld_return  {
   box-sizing: border-box;
   resize:     none;
   width:      100%;
