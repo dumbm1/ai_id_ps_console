@@ -40,9 +40,9 @@ var themeManager = (function () {
 
   function reverseColor (color, delta) {
     return toHex ({
-        red:   Math.abs (255 - color.red),
+        red  : Math.abs (255 - color.red),
         green: Math.abs (255 - color.green),
-        blue:  Math.abs (255 - color.blue)
+        blue : Math.abs (255 - color.blue)
       },
       delta);
   }
@@ -108,13 +108,18 @@ var themeManager = (function () {
     addRule (styleId, ".hostButton", "border-color: " + "#" + lightBgdColor);
 
     //@MaratShagiev(c)
-    addRule (styleId, ".hostTextarea", "background-color:" + "#" + darkBgdColorFoFields);
+    addRule (styleId, ".hostTextarea", "background-color:" + "#" + darkBgdColor/*FoFields*/);
     addRule (styleId, ".hostTextarea:focus", "border-color:" + "#" + focusBorderColor);
     addRule (styleId, ".hostTextarea:hover", "border-color:" + "#" + focusBorderColor);
-    addRule (styleId, ".hostTextarea:active", "background-color:" + "#" + darkBgdColorFoFields);
+    addRule (styleId, ".hostTextarea:active", "background-color:" + "#" + darkBgdColor/*FoFields*/);
     addRule (styleId, ".hostTextarea", "border-color: " + "#" + lightBgdColor);
     addRule (styleId, ".hostTextarea", "font-size:" + appSkinInfo.baseFontSize + "px;");
     addRule (styleId, ".hostTextarea", "font-family:" + appSkinInfo.baseFontFamily);
+
+    addRule (styleId, ".hostConsole", "background-color:" + "#" + darkBgdColor);
+    addRule (styleId, ".hostConsole:active", "background-color:" + "#" + darkBgdColor);
+    addRule (styleId, ".hostConsole", "font-size:" + appSkinInfo.baseFontSize + "px;");
+    addRule (styleId, ".hostConsole", "font-family:" + appSkinInfo.baseFontFamily);
 
   }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-        Version="5.0"
+        Version="4.0"
         ExtensionBundleId="com.wk.console_wk"
-        ExtensionBundleVersion="0.5"
+        ExtensionBundleVersion="0.6"
         ExtensionBundleName="console"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -14,11 +14,11 @@
     <Legal>
         <![CDATA[Legal stuff...]]>
     </Legal>
-    <Abstract href="#">
-        <![CDATA[The most super-simple console that based on the js function eval]]>
+    <Abstract href="htpps://github.com/dumbm1/ai_id_ps_console.git">
+        <![CDATA[Editor based on ACE library + output console]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.console_wk" Version="0.5"/>
+        <Extension Id="com.wk.console_wk" Version="0.6"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -31,7 +31,7 @@
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="5.0"/>
+            <RequiredRuntime Name="CSXS" Version="4.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
@@ -46,20 +46,12 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console_wk 0.5</Menu>
+                    <Menu>console_wk 0.6</Menu>
                     <Geometry>
                         <Size>
                             <Height>260</Height>
-                            <Width>550</Width>
-                        </Size>
-                        <MinSize>
-                            <Height>260</Height>
                             <Width>430</Width>
-                        </MinSize>
-                        <MaxSize>
-                            <Height>400</Height>
-                            <Width>550</Width>
-                        </MaxSize>
+                        </Size>
                     </Geometry>
                     <Icons>
                         <Icon Type="Normal">./icons/iconNormal.png</Icon>
