@@ -5,15 +5,28 @@
     <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
     <title>console</title>
     <style type="text/css">
+        #themes {
+            width:       100px;
+            margin-left: 3px;
+            height:      20px;
+        }
     </style>
 </head>
 <body class="hostElt main-pan">
-<div id="content" class="container-code hostBorder"><div id="editor"></div></div>
- <div class="footer">
+<div id="content" class="container-code hostBorder">
+    <div id="editor"></div>
+</div>
+<div class="footer">
     <div class="row float-left">
         <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+enter"/>
         <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="alt+enter"/>
         <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title=""/>
+    </div>
+    <div class="row float-left">
+        <span class="float-left">Themes</span>
+        <select class="hostTextarea float-left" name="themes" id="themes">
+            <option>monokai</option>
+        </select>
     </div>
     <div class="row float-right">
         <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
