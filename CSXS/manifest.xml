@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="4.0"
         ExtensionBundleId="com.wk.console_wk"
-        ExtensionBundleVersion="0.6"
+        ExtensionBundleVersion="0.7"
         ExtensionBundleName="console"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -14,11 +14,11 @@
     <Legal>
         <![CDATA[Legal stuff...]]>
     </Legal>
-    <Abstract href="htpps://github.com/dumbm1/ai_id_ps_console.git">
+    <Abstract href="htpps://github.com/dumbm1/ai_id_ps_console">
         <![CDATA[Editor based on ACE library + output console]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.console_wk" Version="0.6"/>
+        <Extension Id="com.wk.console_wk" Version="0.7"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -46,7 +46,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console_wk 0.6</Menu>
+                    <Menu>console_wk 0.7</Menu>
                     <Geometry>
                         <Size>
                             <Height>260</Height>

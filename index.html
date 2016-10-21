@@ -6,9 +6,14 @@
     <title>console</title>
     <style type="text/css">
         #themes {
-            width:       100px;
-            margin-left: 3px;
-            height:      20px;
+          width       : 100px;
+          margin-left : 3px;
+          height      : 20px;
+        }
+
+        .label-left {
+          margin-top  : 3px;
+          margin-left : 5px;
         }
     </style>
 </head>
@@ -23,14 +28,16 @@
         <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title=""/>
     </div>
     <div class="row float-left">
-        <span class="float-left">Themes</span>
+        <span class="float-left label-left">Themes</span>
         <select class="hostTextarea float-left" name="themes" id="themes">
-            <option>monokai</option>
+            <!--<option>monokai</option>-->
         </select>
     </div>
     <div class="row float-right">
         <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
         <input id="btn_close" class="hostButton btns" type="button" value="Close"/>
+        <input id="btn_github" class="hostButton btns" type="button" value="GitHub"
+               title="htpps://github.com/dumbm1/ai_id_ps_console"/>
     </div>
     <div class="row">
         <textarea id="fld_return" class="hostConsole hostFont" disabled></textarea>
