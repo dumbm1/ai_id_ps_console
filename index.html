@@ -6,26 +6,34 @@
     <title>console</title>
     <style type="text/css">
         #themes {
-          width       : 100px;
-          margin-left : 3px;
-          height      : 20px;
+            width:       100px;
+            margin-left: 3px;
+            height:      20px;
         }
 
         .label-left {
-          margin-top  : 3px;
-          margin-left : 5px;
+            margin-top:  3px;
+            margin-left: 5px;
+        }
+
+        .hideOutput {
+            display: none;
+        }
+        .editor-cut {
+            margin-bottom:  89px !important;
         }
     </style>
 </head>
 <body class="hostElt main-pan">
 <div id="content" class="container-code hostBorder">
-    <div id="editor"></div>
+    <div id="editor" class="editor-cut"></div>
 </div>
 <div class="footer">
     <div class="row float-left">
+        <input id="btn_output" class="hostButton btns" type="button" value="Output" title="Output"/>
         <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+enter"/>
         <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="alt+enter"/>
-        <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title=""/>
+        <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="Clear output"/>
     </div>
     <div class="row float-left">
         <span class="float-left label-left">Themes</span>

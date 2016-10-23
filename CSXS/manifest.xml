@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="4.0"
         ExtensionBundleId="com.wk.console_wk"
-        ExtensionBundleVersion="0.7"
+        ExtensionBundleVersion="0.8"
         ExtensionBundleName="console"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -18,7 +18,7 @@
         <![CDATA[Editor based on ACE library + output console]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.console_wk" Version="0.7"/>
+        <Extension Id="com.wk.console_wk" Version="0.8"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -46,12 +46,16 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console_wk 0.7</Menu>
+                    <Menu>console_wk 0.8</Menu>
                     <Geometry>
                         <Size>
                             <Height>260</Height>
                             <Width>430</Width>
                         </Size>
+                        <MinSize>
+                            <Height>160</Height>
+                            <Width>460</Width>
+                        </MinSize>
                     </Geometry>
                     <Icons>
                         <Icon Type="Normal">./icons/iconNormal.png</Icon>
