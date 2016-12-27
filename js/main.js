@@ -42,8 +42,11 @@
       localStorage.theme = $("#themes").val();
     })
 
-/*    var elem = document.getElementById('editor');
-    if (elem.addEventListener) {
+    /**
+     * try to change font size by scroll... fail...
+     * todo: make dropdownlist with font size values
+     var elem = document.getElementById('editor');
+     if (elem.addEventListener) {
       if ('onwheel' in document) {
         // IE9+, FF17+, Ch31+
         elem.addEventListener("wheel", onWheel);
@@ -57,7 +60,7 @@
     } else { // IE8-
       elem.attachEvent("onmousewheel", onWheel);
     }
-    function onWheel(e) {
+     function onWheel(e) {
       if (e.altKey) {
         var fntSize                                      = document.getElementById('editor').style.fontSize;
         fntSize                                          = parseInt(fntSize);
@@ -88,17 +91,18 @@
       }
     })
     $("#btn_output").click(function() {
+      var editor;
       $("#fld_return").toggleClass('hideOutput');
       localStorage.fld_return = document.getElementById('fld_return').className;
       if ($("#editor").hasClass('editor-cut')) {
         $("#editor").removeClass('editor-cut');
-        var editor = ace.edit("editor");
+        editor = ace.edit("editor");
         editor.setTheme("ace/theme/" + $("#themes").val());
         editor.getSession().setMode("ace/mode/javascript");
         localStorage.theme = $("#themes").val();
       } else {
         $("#editor").addClass('editor-cut');
-        var editor = ace.edit("editor");
+        editor = ace.edit("editor");
         editor.setTheme("ace/theme/" + $("#themes").val());
         editor.getSession().setMode("ace/mode/javascript");
         localStorage.theme = $("#themes").val();
@@ -124,13 +128,18 @@
     $("#btn_clear").click(function() {
       $("#fld_return").val('');
     });
-
     $("#btn_refrash").click(function reloadPanel() {
       location.reload();
     });
     $("#btn_close").click(function() {
-      /*csInterface.evalScript ("killCEP()");*/
-      new CSInterface().closeExtension();
+      var apiVersion = csInterface.getCurrentApiVersion();
+      if (apiVersion.major > 6){
+        csInterface.requestOpenExtension('com.wk.console_wk.dialog');
+        csInterface.closeExtension();
+      } else {
+        csInterface.closeExtension();
+      }
+
     });
     $("#btn_github").click(function() {
       window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_id_ps_console");
