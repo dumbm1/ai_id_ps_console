@@ -47,6 +47,10 @@
               <Height>160</Height>
               <Width>460</Width>
             </MinSize>
+            <MaxSize>
+              <Height>1600</Height>
+              <Width>2000</Width>
+            </MaxSize>
           </Geometry>
           <Icons>
             <Icon Type="Normal">./icons/iconNormal.png</Icon>
