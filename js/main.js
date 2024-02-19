@@ -134,7 +134,7 @@
     $("#btn_close").click(function() {
       var apiVersion = csInterface.getCurrentApiVersion();
       if (apiVersion.major > 6){
-        csInterface.requestOpenExtension('com.wk.console_wk.dialog');
+        csInterface.requestOpenExtension('console.dialog');
         csInterface.closeExtension();
       } else {
         csInterface.closeExtension();

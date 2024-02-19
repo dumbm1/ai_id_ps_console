@@ -7,6 +7,8 @@ function evalStr (str) {
     res = eval (/*JSON.parse*/ (str));
   } catch (e) {
     res = e.message;
+  } finally {
+    return res;
   }
-  return res;
+
 }
