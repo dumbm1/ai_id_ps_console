@@ -2,12 +2,12 @@
 <ExtensionManifest
     Version="4.0"
     ExtensionBundleId="com.wk.console_wk"
-    ExtensionBundleVersion="0.9"
+    ExtensionBundleVersion="0.9.1"
     ExtensionBundleName="js console"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="com.wk.console_wk.panel" Version="0.9"/>
-    <Extension Id="com.wk.console_wk.dialog" Version="0.9"/>
+    <Extension Id="com.wk.console_wk.panel" Version="0.9.1"/>
+    <Extension Id="com.wk.console_wk.dialog" Version="0.9.1"/>
   </ExtensionList>
   <ExecutionEnvironment>
     <HostList>
@@ -37,7 +37,7 @@
         </Lifecycle>
         <UI>
           <Type>Panel</Type>
-          <Menu>Console Panel wk v0.9</Menu>
+          <Menu>Console Panel wk v0.9.1</Menu>
           <Geometry>
             <Size>
               <Height>260</Height>
@@ -45,7 +45,7 @@
             </Size>
             <MinSize>
               <Height>160</Height>
-              <Width>460</Width>
+              <Width>200</Width>
             </MinSize>
             <MaxSize>
               <Height>1600</Height>
@@ -75,7 +75,7 @@
         </Lifecycle>
         <UI>
           <Type>ModalDialog</Type>
-          <Menu>Console Reload wk v0.9</Menu>
+          <Menu>Console Reload wk v0.9.1</Menu>
           <Geometry>
             <Size>
               <Height>1</Height>
