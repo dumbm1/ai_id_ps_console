@@ -1,0 +1,38 @@
+.output {
+ width: 100%;
+ position: relative;
+}
+
+.output__title {
+ padding-top: .3rem;
+ padding-bottom: .2rem;
+ outline: none;
+ display: inline-block;
+ cursor: pointer;
+}
+
+.output__field {
+ resize: none;
+ width: 100%;
+ border: none;
+ outline: none;
+ overflow: auto;
+}
+
+.output__button {
+ position: absolute;
+ top: -.1rem;
+ right: 0;
+ outline: none;
+ transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+ opacity: .6;
+ font-weight: bold;
+}
+
+.output__button:active {
+ transform: translateY(2px);
+}
+
+.output__button:hover {
+ opacity: 1;
+}

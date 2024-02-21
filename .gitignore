@@ -7,3 +7,7 @@ img/**/tmpl/*
 
 .idea/*
 
+js/libs/ace-modules-ignore/*.js
+js/libs/ace-modules-ignore/snippets/*.js
+
+/js/libs/ace-modules-ignore/

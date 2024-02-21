@@ -1,0 +1,22 @@
+.main-menu {
+ display: flex;
+ gap: .3rem;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+.main-menu__group {
+ display: flex;
+ gap: .3rem;
+ align-items: center;
+}
+
+.main-menu__inner-group {
+ display: flex;
+ gap: .3rem;
+ align-items: center;
+}
+
+.main-menu__inner-group_gap-x-3 {
+ gap: .8rem;
+}

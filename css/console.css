@@ -1,0 +1,7 @@
+.console {
+ display: grid;
+ grid-template-rows: 1fr auto auto;
+ row-gap: .4rem;
+ height: 100%;
+ padding: .5rem;
+}

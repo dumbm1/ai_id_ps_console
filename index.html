@@ -1,67 +1,62 @@
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link id="hostStyle" rel="stylesheet" href="css/main.css"/>
-        <title>console</title>
+	<head>
+		<meta charset="utf-8">
+		<link id="hostStyle" rel="stylesheet" href="css/main.css"/>
+		<title>console</title>
 
-    </head>
+	</head>
 
-    <body class="hostElt">
+	<body class="hostElt">
 
-        <div class="page">
+		<div class="console">
 
-            <div id="editor"></div>
+			<div id="editor"></div>
 
-            <div class="footer">
+			<div class="main-menu">
 
-                <div class="row">
-                    <!--                    <button id="btn_output" class="hostButton btns" title="Show-hide output">Output</button>-->
-                    <button id="btn_eval_js" class="hostButton btns" title="Shortcut: ctrl+enter">Chrome</button>
-                    <button id="btn_eval_jsx" class="hostButton btns" title="Shortcut: alt+enter">Extend Script</button>
-                    <button id="btn_clear" class="hostButton btns" title="Clear output">Clear output</button>
-                </div>
+				<div class="main-menu__group">
+					<button id="btn_eval_js" class="button hostButton" title="Shortcut: ctrl+enter">Chrome</button>
+					<button id="btn_eval_jsx" class="button hostButton" title="Shortcut: alt+enter">Extend Script</button>
+				</div>
 
-                <div class="row  row__inner_gap-x-3">
-                    <div class="row__inner">
-                        <label for="is_autocomplete">Autocomplete:</label>
-                        <input id="is_autocomplete" type="checkbox">
-                    </div>
-                    <div class="row__inner">
-                        <label for="themes" class="">Themes:</label>
-                        <select class="hostTextarea" name="themes" id="themes">
-                            <!--<option>monokai</option>-->
-                        </select>
-                    </div>
-                </div>
+				<div class="main-menu__group  main-menu__inner-group_gap-x-3">
+					<div class="main-menu__inner-group">
+						<label for="is_autocomplete">Autocomplete:</label>
+						<input id="is_autocomplete" class="checkbox" type="checkbox">
+					</div>
+					<div class="main-menu__inner-group">
+						<label for="themes" class="">Themes:</label>
+						<select class="hostTextarea select" name="themes" id="themes">
+							<!--<option>monokai</option>-->
+						</select>
+					</div>
+				</div>
 
-                <div class="row">
+				<div class="main-menu__group">
 
-                    <button id="btn_refrash" class="hostButton btns">Refresh</button>
-                    <button id="btn_close" class="hostButton btns">Reset ES</button>
-                    <button id="btn_github" class="hostButton btns">Github</button>
-                </div>
-            </div>
+					<button id="btn_refrash" class="button hostButton">Refresh</button>
+					<button id="btn_close" class="button hostButton">Reset ES</button>
+					<button id="btn_github" class="button hostButton">Github</button>
+				</div>
+			</div>
 
-            <div class="row">
-                <details class="output">
-                    <summary class="output__title">
-                        Show output info
-                    </summary>
-                    <textarea id="fld_return" rows="5" class="" disabled></textarea>
+			<details class="output">
+				<button id="btn_clear_output" class="button button_text-only output__button hostFontColor">Clear output</button>
+				<summary class="output__title">
+					Console output
+				</summary>
+				<textarea id="output_field" rows="5" class="hostTextarea output__field" disabled></textarea>
 
-                </details>
-            </div>
-        </div>
+			</details>
+		</div>
 
-        <script src="js/libs/CSInterface.js"></script>
-        <script src="js/libs/jquery-2.0.2.min.js"></script>
-        <script src="js/themeManager.js"></script>
-        <script src="js/libs/ace.js"></script>
-        <script src="js/libs/ext-language_tools.js"></script>
-        <script src="js/libs/ext-inline_autocomplete.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+		<script src="js/libs/CSInterface.js"></script>
+		<script src="js/libs/jquery-2.0.2.min.js"></script>
+		<script src="js/themeManager.js"></script>
+		<script src="js/libs/ace.js"></script>
+		<script src="js/libs/ext-language_tools.js"></script>
+		<script src="js/main.js"></script>
+	</body>
 </html>
 

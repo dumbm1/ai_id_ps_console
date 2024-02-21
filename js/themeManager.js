@@ -115,6 +115,7 @@ var themeManager = (function () {
     addRule (styleId, ".hostTextarea", "border-color: " + "#" + lightBgdColor);
     addRule (styleId, ".hostTextarea", "font-size:" + appSkinInfo.baseFontSize + "px;");
     addRule (styleId, ".hostTextarea", "font-family:" + appSkinInfo.baseFontFamily);
+    addRule (styleId, ".hostTextarea",  "color:" + "#" + fontColor);
 
     addRule (styleId, ".hostConsole", "background-color:" + "#" + darkBgdColor);
     addRule (styleId, ".hostConsole:active", "background-color:" + "#" + darkBgdColor);
