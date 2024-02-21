@@ -12,7 +12,9 @@ html {
  grid-template-rows: 1fr auto auto;
  row-gap: .4rem;
  height: 100%;
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
+ padding-left: .5rem;
+ padding-right: .5rem;
 }
 
 #content {
@@ -27,9 +29,9 @@ html {
  border-radius: 2px;
  height: 20px;
  vertical-align: bottom;
- font-family:    inherit;
- color:          inherit;
- font-size:      inherit;
+ font-family: inherit;
+ color: inherit;
+ font-size: inherit;
 }
 
 input {
@@ -44,6 +46,11 @@ input[type=text] {
  /*box-sizing: border-box;*/
 }
 
+input[type=checkbox] {
+ height: 1.5rem;
+ width: 1.5rem;
+}
+
 .main-pan {
 }
 
@@ -53,7 +60,19 @@ input[type=text] {
 }
 
 .row {
- /*box-sizing: border-box;*/
+ display: flex;
+ gap: .3rem;
+ align-items: center;
+}
+
+.row__inner {
+ display: flex;
+ gap: .3rem;
+ align-items: center;
+}
+
+.row__inner_gap-x-3 {
+ gap: .8rem;
 }
 
 .float-left {
@@ -101,12 +120,17 @@ input[type=text] {
 }
 
 .footer {
+ display: flex;
+ gap: .3rem;
+ justify-content: space-between;
+ flex-wrap: wrap;
 }
 
 #themes {
- width: 100px;
- margin-left: 3px;
- height: 20px;
+ /*width: 100px;*/
+ /*margin-left: 3px;*/
+ height: 2rem;
+ max-width: 10rem;
 }
 
 .label-left {
@@ -119,6 +143,20 @@ input[type=text] {
 }
 
 .editor-cut {
+}
+
+.output {
+ width: 100%;
+ /*padding-top: .3rem;*/
+ padding-bottom: .5rem;
+}
+
+.output__title {
+ /*height: 1.6rem;*/
+ padding-top: .3rem;
+ padding-bottom: .2rem;
+ outline: none;
+ display: inline-block;
 }
 
 /*******************

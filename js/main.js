@@ -22,8 +22,8 @@
     }
 
     let is_autocomplete = document.getElementById('is_autocomplete');
-    let btnShowOutput = document.getElementById('btn_output');
-    let fldOutput = document.getElementById('fld_return');
+    // let btnShowOutput = document.getElementById('btn_output');
+    // let fldOutput = document.getElementById('fld_return');
 
     let aceThemes = getAceThemes();
     insertThemesList(aceThemes);
@@ -58,9 +58,9 @@
                         });
     });
 
-    btnShowOutput.addEventListener('click', (e) => {
-      fldOutput.classList.toggle('hideOutput');
-    });
+    // btnShowOutput.addEventListener('click', (e) => {
+    //   fldOutput.classList.toggle('hideOutput');
+    // });
 
     $("#editor").keyup(function (e) {
       if (e.ctrlKey && e.keyCode == 13) {
