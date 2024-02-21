@@ -1,72 +1,53 @@
 <!doctype html>
 <html lang="ru">
-	<head>
-		<meta charset="utf-8">
-		<link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
-		<title>console</title>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link id="hostStyle" rel="stylesheet" href="css/main.css"/>
+        <title>console</title>
+    </head>
 
-		<style>
-         #themes {
-          width: 100px;
-          margin-left: 3px;
-          height: 20px;
-         }
+    <body class="hostElt">
 
-         .label-left {
-          margin-top: 3px;
-          margin-left: 5px;
-         }
+        <div class="page">
 
-         .hideOutput {
-          display: none;
-         }
+            <div id="editor"></div>
 
-         .editor-cut {
-          margin-bottom: 89px !important;
-         }
-		</style>
-	</head>
+            <div class="footer">
 
-	<body class="hostElt main-pan">
+                <div class="row float-left">
+                    <input id="btn_output" class="hostButton btns" type="button" value="Output" title="Output"/>
+                    <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+enter"/>
+                    <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="alt+enter"/>
+                    <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="Clear output"/>
+                </div>
 
-		<div id="content" class="container-code hostBorder">
-			<div id="editor" class="editor-cut"></div>
-		</div>
+                <div class="row float-left">
+                    <label for="themes" class="float-left label-left">Themes</label>
+                    <select class="hostTextarea float-left" name="themes" id="themes">
+                        <!--<option>monokai</option>-->
+                    </select>
+                </div>
 
-		<div class="footer">
+                <div class="row float-right">
+                    <input id="btn_refrash" class="hostButton btns" type="button" value="Refresh"/>
+                    <input id="btn_close" class="hostButton btns" type="button" value="Reload"/>
+                    <input id="btn_github" class="hostButton btns" type="button" value="GitHub"
+                           title="htpps://github.com/dumbm1/ai_id_ps_console"/>
+                </div>
 
-			<div class="row float-left">
-				<input id="btn_output" class="hostButton btns" type="button" value="Output" title="Output"/>
-				<input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+enter"/>
-				<input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="alt+enter"/>
-				<input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="Clear output"/>
-			</div>
+                <div class="row">
+                    <textarea id="fld_return" rows="5" class="" disabled></textarea>
+                </div>
+            </div>
+        </div>
 
-			<div class="row float-left">
-				<label for="themes" class="float-left label-left">Themes</label>
-				<select class="hostTextarea float-left" name="themes" id="themes">
-					<!--<option>monokai</option>-->
-				</select>
-			</div>
-
-			<div class="row float-right">
-				<input id="btn_refrash" class="hostButton btns" type="button" value="Refresh"/>
-				<input id="btn_close" class="hostButton btns" type="button" value="Reload"/>
-				<input id="btn_github" class="hostButton btns" type="button" value="GitHub"
-					   title="htpps://github.com/dumbm1/ai_id_ps_console"/>
-			</div>
-
-			<div class="row">
-				<textarea id="fld_return" class="hostConsole hostFont" disabled></textarea>
-			</div>
-		</div>
-
-		<script src="js/libs/CSInterface.js"></script>
-		<script src="js/libs/jquery-2.0.2.min.js"></script>
-		<script src="js/themeManager.js"></script>
-		<script src="js/libs/ace.js"></script>
-		<script src="js/libs/ext-language_tools.js"></script>
-		<script src="js/main.js"></script>
-	</body>
+        <script src="js/libs/CSInterface.js"></script>
+        <script src="js/libs/jquery-2.0.2.min.js"></script>
+        <script src="js/themeManager.js"></script>
+        <script src="js/libs/ace.js"></script>
+        <script src="js/libs/ext-language_tools.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>
 
