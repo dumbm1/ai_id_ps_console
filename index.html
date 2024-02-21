@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link id="hostStyle" rel="stylesheet" href="css/main.css"/>
         <title>console</title>
+
+
     </head>
 
     <body class="hostElt">
@@ -16,24 +18,25 @@
             <div class="footer">
 
                 <div class="row float-left">
-                    <input id="btn_output" class="hostButton btns" type="button" value="Output" title="Output"/>
-                    <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+enter"/>
-                    <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="alt+enter"/>
-                    <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="Clear output"/>
+                    <button id="btn_output" class="hostButton btns" title="Show-hide output">Output</button>
+                    <button id="btn_eval_js" class="hostButton btns" title="Shortcut: ctrl+enter">Chrome</button>
+                    <button id="btn_eval_jsx" class="hostButton btns" title="Shortcut: alt+enter">AI</button>
+                    <button id="btn_clear" class="hostButton btns" itle="Clear output">Clear</button>
                 </div>
 
                 <div class="row float-left">
-                    <label for="themes" class="float-left label-left">Themes</label>
-                    <select class="hostTextarea float-left" name="themes" id="themes">
+                    <label for="is_autocomplete">Autocomplete</label>
+                    <input id="is_autocomplete" type="checkbox">
+                    <label for="themes" class="">Themes</label>
+                    <select class="hostTextarea" name="themes" id="themes">
                         <!--<option>monokai</option>-->
                     </select>
                 </div>
 
                 <div class="row float-right">
-                    <input id="btn_refrash" class="hostButton btns" type="button" value="Refresh"/>
-                    <input id="btn_close" class="hostButton btns" type="button" value="Reload"/>
-                    <input id="btn_github" class="hostButton btns" type="button" value="GitHub"
-                           title="htpps://github.com/dumbm1/ai_id_ps_console"/>
+                    <button id="btn_refrash" class="hostButton btns">Refresh</button>
+                    <button id="btn_close" class="hostButton btns">Reload</button>
+                    <button id="btn_github" class="hostButton btns">GitHub</button>
                 </div>
 
                 <div class="row">
@@ -47,6 +50,7 @@
         <script src="js/themeManager.js"></script>
         <script src="js/libs/ace.js"></script>
         <script src="js/libs/ext-language_tools.js"></script>
+        <script src="js/libs/ext-inline_autocomplete.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

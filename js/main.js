@@ -21,7 +21,9 @@
    document.getElementById('editor').className = localStorage.editorCut;
   }
 
-  var aceThemes = getAceThemes();
+  let is_autocomplete = document.getElementById('is_autocomplete');
+
+  let aceThemes = getAceThemes();
   insertThemesList(aceThemes);
 
   ace.require("ace/ext/language_tools");
@@ -30,9 +32,9 @@
   editor.setTheme("ace/theme/" + $("#themes").val());
   editor.getSession().setMode("ace/mode/javascript");
   editor.setOptions({
-                     enableBasicAutocompletion: true,
-                     enableSnippets: true,
-                     enableLiveAutocompletion: true,
+                     enableBasicAutocompletion: is_autocomplete.checked,
+                     enableSnippets: false,
+                     enableLiveAutocompletion: is_autocomplete.checked,
                     });
 
   if (localStorage.fntSize) {
@@ -45,6 +47,14 @@
    editor.getSession().setMode("ace/mode/javascript");
    localStorage.theme = $("#themes").val();
   });
+
+  is_autocomplete.addEventListener('change', (e)=>{
+   editor.setOptions({
+                      enableBasicAutocompletion: is_autocomplete.checked,
+                      enableSnippets: false,
+                      enableLiveAutocompletion: is_autocomplete.checked,
+                     })
+  })
 
   $("#editor").keyup(function (e) {
    if (e.ctrlKey && e.keyCode == 13) {

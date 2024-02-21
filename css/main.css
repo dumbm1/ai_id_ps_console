@@ -1,10 +1,10 @@
+* {
+ box-sizing: border-box;
+}
+
 html {
  font-size: 10px;
  overflow: hidden;
-}
-
-body {
- /*margin: 10px;*/
 }
 
 .page {
@@ -27,30 +27,24 @@ body {
  border-radius: 2px;
  height: 20px;
  vertical-align: bottom;
- font-family: inherit;
- color: inherit;
- font-size: inherit;
-}
-
-textarea {
- /*overflow-y: auto;*/
- /*height:     250px;*/
+ font-family:    inherit;
+ color:          inherit;
+ font-size:      inherit;
 }
 
 input {
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
  display: inline-block;
 }
 
 input[type=text] {
  border: none;
+ outline: none;
  width: 100%;
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
 }
 
 .main-pan {
- margin: auto;
- padding: 0;
 }
 
 .block {
@@ -59,8 +53,7 @@ input[type=text] {
 }
 
 .row {
- /*display: block;*/
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
 }
 
 .float-left {
@@ -72,7 +65,7 @@ input[type=text] {
 }
 
 #btn_eval_js, #btn_eval_jsx, #btn_clear {
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
 }
 
 #btn_clear {
@@ -85,46 +78,29 @@ input[type=text] {
 }
 
 #btn_refrash {
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
  overflow-x: hidden;
 }
 
 #btn_close {
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
  overflow-x: hidden;
 }
 
 #fld_return {
- box-sizing: border-box;
+ /*box-sizing: border-box;*/
  resize: none;
  width: 100%;
- /*height:     65px;*/
- font-size: 1.1rem;
- /*background : rgba(255, 255, 255, .7);*/
  border: none;
  outline: none;
- /*margin-top: 1px;*/
  overflow: auto;
 }
 
 #editor {
- /*  position:       absolute;
-   top:            0;
-   right:          0;
-   bottom:         0;
-   left:           0;
-   margin:         0;
-   font-size:      12px;
-   text-transform: none;
-   margin-bottom:  22px;*/
  height: 100%;
 }
 
 .footer {
- /* position: absolute;
-  right:    0;
-  bottom:   0;
-  width:    100%;*/
 }
 
 #themes {
@@ -143,5 +119,28 @@ input[type=text] {
 }
 
 .editor-cut {
- margin-bottom: 89px !important;
 }
+
+/*******************
+CUSTOM SCROLLBAR **/
+
+/*textarea::-webkit-scrollbar {
+ width: 1rem;
+ background: yellow;
+}
+
+textarea::-webkit-scrollbar-track {
+ border: yellow;
+ background-color: green;
+}
+textarea::-webkit-scrollbar-thumb {
+ border: cyan;
+ background-color: magenta;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+ background: blueviolet;
+}*/
+
+/** CUSTOM SCROLLBAR
+******************************/
