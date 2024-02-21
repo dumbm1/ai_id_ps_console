@@ -9,7 +9,7 @@ html {
 
 .page {
  display: grid;
- grid-template-rows: 1fr auto;
+ grid-template-rows: 1fr auto auto;
  row-gap: .4rem;
  height: 100%;
  box-sizing: border-box;
