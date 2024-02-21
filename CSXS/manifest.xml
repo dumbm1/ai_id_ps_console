@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
     Version="4.0"
-    ExtensionBundleId="console"
-    ExtensionBundleVersion="0"
-    ExtensionBundleName="console"
+    ExtensionBundleId="js_console"
+    ExtensionBundleVersion="0.9.1"
+    ExtensionBundleName="js_console"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="console.panel" Version="0"/>
-    <Extension Id="console.dialog" Version="0"/>
+    <Extension Id="js_console_panel" Version="0.9.1"/>
+    <Extension Id="js_console_dialog" Version="0.9.1"/>
   </ExtensionList>
   <ExecutionEnvironment>
     <HostList>
       <Host Name="ILST" Version="17.0"/>
-      <Host Name="IDSN" Version="10.0"/>
-      <Host Name="PHXS" Version="15.0"/>
-      <Host Name="PHSP" Version="15.0"/>
     </HostList>
     <LocaleList>
       <Locale Code="All"/>
@@ -26,7 +23,7 @@
 
   <DispatchInfoList>
 
-    <Extension Id="console.panel">
+    <Extension Id="js_console_panel">
       <DispatchInfo>
         <Resources>
           <MainPath>./index.html</MainPath>
@@ -63,7 +60,7 @@
       </DispatchInfo>
     </Extension>
 
-    <Extension Id="console.dialog">
+    <Extension Id="js_console_dialog">
       <DispatchInfo>
         <Resources>
           <MainPath>./dialog.html</MainPath>

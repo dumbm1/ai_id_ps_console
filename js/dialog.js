@@ -5,7 +5,7 @@
   function init() {
     themeManager.init();
     if (csInterface.isWindowVisible()) {
-      csInterface.requestOpenExtension('console.panel');
+      csInterface.requestOpenExtension('js_console_panel');
       csInterface.closeExtension();
     }
   }
