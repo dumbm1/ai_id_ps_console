@@ -3,6 +3,9 @@
     <Extension Id="js_console_panel">
         <HostList>
             <Host Name="ILST" Port="7770"/>
+            <Host Name="IDSN" Port="7771"/>
+            <Host Name="PHXS" Port="7772"/>
+            <Host Name="PHSP" Port="7772"/>
         </HostList>
     </Extension>
 </ExtensionList>

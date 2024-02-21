@@ -1,108 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-    Version="11.0"
-    ExtensionBundleId="js_console"
-    ExtensionBundleVersion="0.9.1"
-    ExtensionBundleName="js_console"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        Version="11.0"
+        ExtensionBundleId="js_console"
+        ExtensionBundleVersion="0"
+        ExtensionBundleName="js_console"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  <Author>
-    <![CDATA[Marat Shagiev]]>
-  </Author>
-  <Contact mailto="m_js@bk.ru">
-    <![CDATA[m_js@bk.ru]]>
-  </Contact>
-  <Legal>
-    <![CDATA[]]>
-  </Legal>
-  <Abstract href="">
-    <![CDATA[]]>
-  </Abstract>
+    <Author>
+        <![CDATA[Marat Shagiev]]>
+    </Author>
+    <Contact mailto="m_js@bk.ru">
+        <![CDATA[m_js@bk.ru]]>
+    </Contact>
+    <Legal>
+        <![CDATA[]]>
+    </Legal>
+    <Abstract href="">
+        <![CDATA[]]>
+    </Abstract>
 
-  <ExtensionList>
-    <Extension Id="js_console_panel" Version="0.9.1"/>
-    <Extension Id="js_console_dialog" Version="0.9.1"/>
-  </ExtensionList>
+    <ExtensionList>
+        <Extension Id="js_console_panel" Version="0"/>
+        <Extension Id="js_console_dialog" Version="0"/>
+    </ExtensionList>
 
-  <ExecutionEnvironment>
-    <HostList>
-      <Host Name="ILST" Version="17.0"/>
-    </HostList>
-    <LocaleList>
-      <Locale Code="All"/>
-    </LocaleList>
-    <RequiredRuntimeList>
-      <RequiredRuntime Name="CSXS" Version="11.0"/>
-    </RequiredRuntimeList>
-  </ExecutionEnvironment>
+    <ExecutionEnvironment>
+        <HostList>
+            <Host Name="ILST" Version="17.0"/>
+            <Host Name="IDSN" Version="10.0"/>
+            <Host Name="PHXS" Version="15.0"/>
+            <Host Name="PHSP" Version="15.0"/>
+        </HostList>
+        <LocaleList>
+            <Locale Code="All"/>
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="11.0"/>
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
 
-  <DispatchInfoList>
+    <DispatchInfoList>
 
-    <Extension Id="js_console_panel">
-      <DispatchInfo>
-        <Resources>
-          <MainPath>./index.html</MainPath>
-          <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
-          <CEFCommandLine>
-            <Parameter>--enable-nodejs</Parameter>
-            <Parameter>--mixed-context</Parameter>
-            <Parameter>--allow-file-access</Parameter>
-            <Parameter>--allow-file-access-from-files</Parameter>
-          </CEFCommandLine>
-        </Resources>
-        <Lifecycle>
-          <AutoVisible>true</AutoVisible>
-        </Lifecycle>
-        <UI>
-          <Type>Panel</Type>
-          <Menu>console 0.9.1</Menu>
-          <Geometry>
-            <Size>
-              <Height>260</Height>
-              <Width>430</Width>
-            </Size>
-            <MinSize>
-              <Height>160</Height>
-              <Width>200</Width>
-            </MinSize>
-            <MaxSize>
-              <Height>1600</Height>
-              <Width>2000</Width>
-            </MaxSize>
-          </Geometry>
-          <Icons>
-            <Icon Type="Normal">./icons/iconNormal.png</Icon>
-            <Icon Type="RollOver">./icons/iconRollover.png</Icon>
-            <Icon Type="Disabled">./icons/iconDisabled.png</Icon>
-            <Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
-            <Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
-          </Icons>
-        </UI>
-      </DispatchInfo>
-    </Extension>
+        <Extension Id="js_console_panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                        <Parameter>--mixed-context</Parameter>
+                        <Parameter>--allow-file-access</Parameter>
+                        <Parameter>--allow-file-access-from-files</Parameter>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>js console 0.9.1</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>260</Height>
+                            <Width>430</Width>
+                        </Size>
+                        <MinSize>
+                            <Height>160</Height>
+                            <Width>200</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>1600</Height>
+                            <Width>2000</Width>
+                        </MaxSize>
+                    </Geometry>
+                    <Icons>
+                        <Icon Type="Normal">./icons/iconJSConsole.png</Icon>
+                        <Icon Type="RollOver">./icons/iconJSConsole.png</Icon>
+                        <Icon Type="Disabled">./icons/iconJSConsole.png</Icon>
+                        <Icon Type="DarkNormal">./icons/iconJSConsole.png</Icon>
+                        <Icon Type="DarkRollOver">./icons/iconJSConsole.png</Icon>
+                    </Icons>
+                </UI>
+            </DispatchInfo>
+        </Extension>
 
-    <Extension Id="js_console_dialog">
-      <DispatchInfo>
-        <Resources>
-          <MainPath>./dialog.html</MainPath>
-          <CEFCommandLine>
-          </CEFCommandLine>
-        </Resources>
-        <Lifecycle>
-          <AutoVisible>false</AutoVisible>
-        </Lifecycle>
-        <UI>
-          <Type>ModalDialog</Type>
-          <Menu>console [service]</Menu>
-          <Geometry>
-            <Size>
-              <Height>1</Height>
-              <Width>1</Width>
-            </Size>
-          </Geometry>
-        </UI>
-      </DispatchInfo>
-    </Extension>
+        <Extension Id="js_console_dialog">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./dialog.html</MainPath>
+                    <CEFCommandLine>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>false</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>ModalDialog</Type>
+                    <Menu>js console [service]</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>1</Height>
+                            <Width>1</Width>
+                        </Size>
+                    </Geometry>
+                </UI>
+            </DispatchInfo>
+        </Extension>
 
-  </DispatchInfoList>
+    </DispatchInfoList>
 </ExtensionManifest>
