@@ -12,6 +12,10 @@
  background: none;
 }
 
+.button_icon_sprite{
+ padding-left: 2rem;
+}
+
 .button_icon_chrome {
  padding-left: 2rem;
 }

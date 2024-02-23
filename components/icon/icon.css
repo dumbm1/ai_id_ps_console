@@ -6,3 +6,14 @@
 .icon_blue {
  color: var(--blue-2);
 }
+
+.icon_button {
+ position: absolute;
+ top: 50%;
+ left: 0;
+ transform: translate(.2rem, -50%);
+ margin-right: 2rem;
+}
+.icon_red {
+ color: var(--error);
+}
