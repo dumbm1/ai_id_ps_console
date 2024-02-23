@@ -1,0 +1,13 @@
+:root {
+ --black: #000000;
+ --white: #ffffff;
+
+ --blue-1: #008cff;
+ --blue-2: #0064ff;
+
+ --error: #e83700;
+ --success-1: #00d709;
+ --success-2: #00ff0a;
+ --info-1: #0085ff;
+ --info-2: #00beff;
+}

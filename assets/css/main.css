@@ -1,0 +1,27 @@
+@import "normalize.css";
+@import "fonts.css";
+@import "colors.css";
+@import "../../components/button/button.css";
+@import "../../components/checkbox/checkbox.css";
+@import "../../components/console/console.css";
+@import "../../components/main-menu/main-menu.css";
+@import "../../components/output/output.css";
+@import "../../components/select/select.css";
+@import "../../components/icon/icon.css";
+
+* {
+ box-sizing: border-box;
+}
+
+html {
+ font-size: 10px;
+ overflow: hidden;
+}
+
+body {
+ font-family: "Tahoma", Sans-Serif;
+}
+
+#editor {
+ height: 100%;
+}

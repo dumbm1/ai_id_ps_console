@@ -1,0 +1,8 @@
+.icon {
+ height: 1.4rem;
+ width: 1.4rem;
+}
+
+.icon_blue {
+ color: var(--blue-2);
+}

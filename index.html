@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta charset="utf-8">
-		<link id="hostStyle" rel="stylesheet" href="css/main.css"/>
+		<link id="hostStyle" rel="stylesheet" href="assets/css/main.css"/>
 		<title>console</title>
 
 	</head>
@@ -16,11 +16,15 @@
 			<div class="main-menu">
 
 				<div class="main-menu__group">
-					<button id="btn_eval_js" class="button hostButton" title="Shortcut: ctrl+enter">Chrome</button>
-					<button id="btn_eval_jsx" class="button hostButton" title="Shortcut: alt+enter">Extend Script</button>
+					<button id="btn_eval_js" class="button button_icon_chrome hostButton" title="">Run js</button>
+					<button id="btn_eval_jsx" class="button button_icon_es hostButton" title="">Run jsx</button>
+					<!--<img style="height: 1.8rem; width: 1.8rem" id="btn_eval_js" src="assets/img/chrome.svg"
+						 alt="Eval code in Chrome environment. Shortcut: Ctrl + Enter">
+					<img style="height: 1.7rem; width: 1.7rem" id="btn_eval_jsx" src="assets/img/extendscript.svg"
+						 alt="Eval code as Extend Script in host app environment. Shortcut: Alt + Enter">-->
 				</div>
 
-				<div class="main-menu__group  main-menu__inner-group_gap-x-3">
+				<div style="display: none" class="main-menu__group  main-menu__inner-group_gap-x-3">
 					<div class="main-menu__inner-group">
 						<label for="is_autocomplete">Autocomplete:</label>
 						<input id="is_autocomplete" class="checkbox" type="checkbox">
@@ -35,28 +39,35 @@
 
 				<div class="main-menu__group">
 
+					<button id="btn_settings" class="button hostButton">Settings</button>
 					<button id="btn_refrash" class="button hostButton">Refresh</button>
-					<button id="btn_close" class="button hostButton">Reset ES</button>
+					<button id="btn_close" class="button hostButton">Reset!</button>
 					<button id="btn_github" class="button hostButton">Github</button>
 				</div>
 			</div>
 
-			<details class="output">
-				<button id="btn_clear_output" class="button button_text-only output__button hostFontColor">Clear output</button>
+			<details class="output" open>
 				<summary class="output__title">
 					Console output
 				</summary>
+
+				<svg id="btn_clear_output" class="icon output__button">
+					<use href="assets/img/icons-sprite.svg#clear-output"></use>
+				</svg>
+
+
 				<textarea id="output_field" rows="5" class="hostTextarea output__field" disabled></textarea>
 
 			</details>
 		</div>
 
-		<script src="js/libs/CSInterface.js"></script>
-		<script src="js/libs/jquery-2.0.2.min.js"></script>
-		<script src="js/themeManager.js"></script>
-		<script src="js/libs/ace.js"></script>
-		<script src="js/libs/ext-language_tools.js"></script>
-		<script src="js/main.js"></script>
+		<script src="assets/js/CSInterface.js"></script>
+		<script src="assets/js/libs/jquery-2.0.2.min.js"></script>
+		<script src="assets/js/themeManager.js"></script>
+		<script src="assets/js/libs/ace/ace.js"></script>
+		<script src="assets/js/libs/ace/ext-language_tools.js"></script>
+		<script src="assets/js/libs/ace/ext-settings_menu.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
 

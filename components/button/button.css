@@ -1,0 +1,43 @@
+.button {
+ border: 1px solid;
+ border-radius: .2rem;
+ height: 2rem;
+ cursor: pointer;
+ color: inherit; /* ???!!! */
+ position: relative;
+}
+
+.button_text-only {
+ /*border: none;*/
+ background: none;
+}
+
+.button_icon_chrome {
+ padding-left: 2rem;
+}
+
+.button_icon_es {
+ padding-left: 2rem;
+}
+
+.button_icon_chrome:before {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 0;
+ width: 1.4rem;
+ height: 1.4rem;
+ background: url(../../assets/img/chrome.svg) center no-repeat;
+ transform: translate(.2rem, -50%);
+}
+
+.button_icon_es:before {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 0;
+ width: 1.4rem;
+ height: 1.4rem;
+ background: url(../../assets/img/es.svg) center no-repeat;
+ transform: translate(.2rem, -50%);
+}
