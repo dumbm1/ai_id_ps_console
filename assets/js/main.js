@@ -147,10 +147,10 @@
  function evalInAi(str, fld_return) {
   csInterface.evalScript('evalStr(' + JSON.stringify(str) + ')', function (res) {
    if (!fld_return.value) {
-    fld_return.value = '[ai]: ' + res;
+    fld_return.value = '[jsx]: ' + res;
     fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
    } else {
-    fld_return.value += '\n' + '[ai]: ' + res;
+    fld_return.value += '\n' + '[jsx]: ' + res;
     fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
    }
   });
