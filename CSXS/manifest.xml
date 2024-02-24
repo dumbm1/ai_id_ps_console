@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-        Version="11.0"
+        Version="7.0"
         ExtensionBundleId="js_console"
         ExtensionBundleVersion="0"
         ExtensionBundleName="js_console"
@@ -35,7 +35,7 @@
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="11.0"/>
+            <RequiredRuntime Name="CSXS" Version="7.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
 

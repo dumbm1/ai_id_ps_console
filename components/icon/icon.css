@@ -3,10 +3,6 @@
  width: 1.4rem;
 }
 
-.icon_blue {
- color: var(--blue-2);
-}
-
 .icon_button {
  position: absolute;
  top: 50%;
@@ -14,6 +10,7 @@
  transform: translate(.2rem, -50%);
  margin-right: 2rem;
 }
-.icon_red {
- color: var(--error);
+
+.icon_clear-output {
+ transform: translate(.7rem, .3rem);
 }
