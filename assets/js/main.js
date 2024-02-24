@@ -102,7 +102,7 @@
 
   document.getElementById('btn_refresh').addEventListener('click', () => location.reload());
 
-  document.getElementById('btn_close').addEventListener('click', () => {
+/*  document.getElementById('btn_reset').addEventListener('click', () => {
    let apiVersion = csInterface.getCurrentApiVersion();
    if (apiVersion.major > 6) {
     csInterface.requestOpenExtension('js_console_dialog');
@@ -110,9 +110,11 @@
    } else {
     csInterface.closeExtension();
    }
-  });
+  });*/
 
-  document.getElementById('btn_github').addEventListener('click', () => window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_id_ps_console"));
+  document.getElementById('btn_github').addEventListener('click', () =>{
+   window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_id_ps_console");
+  });
 
  }
 
