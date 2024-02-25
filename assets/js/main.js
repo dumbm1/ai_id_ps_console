@@ -17,39 +17,96 @@
 
   const btn_settings = document.getElementById('btn_settings');
 
-  let ace_settingsmenu;
+  let aceMenuSettings;
 
   let aceMenuOpts;
+  let aceLastSessionCode;
+
   if (localStorage.aceMenuOpts) {
    aceMenuOpts = localStorage.aceMenuOpts;
+   aceLastSessionCode = localStorage.aceLastSessionCode;
   }
+
+  ace.require("ace/ext/language_tools");
+  const reformateCode = ace.require('ace/ext/beautify');
+  const aceMenu = ace.require('ace/ext/settings_menu');
 
   const editor = ace.edit("editor");
 
-  ace.require("ace/ext/language_tools");
-  ace.require('ace/ext/settings_menu').init(editor);
+  if (!aceMenuOpts) {
+   editor.setTheme("ace/theme/gruvbox");
+   editor.session.setMode("ace/mode/javascript");
+  }
+
+  aceMenu.init(editor);
+
+  editor.commands.addCommand({
+                              name: "beautify",
+                              description: "Format selection (Beautify)",
+                              exec: function (editor) {
+                               reformateCode.beautify(editor.session);
+                              },
+                              bindKey: "Ctrl-Alt-L",
+                             });
+
+ editor.commands.addCommand({
+                              name: "foldAll",
+                              description: "Fold all code",
+                              exec: function (editor) {
+                               editor.session.foldAll();
+                              },
+                              bindKey: "Ctrl-Shift--",
+                             });
+
+  editor.commands.addCommand({
+                              name: "unfold",
+                              description: "Unfold all code",
+                              exec: function (editor) {
+                               editor.session.unfold();
+                              },
+                              bindKey: "Ctrl-Shift-=",
+                             });
 
   if (aceMenuOpts) {
    editor.setOptions(JSON.parse(aceMenuOpts));
   }
 
+  if (aceLastSessionCode) {
+   editor.session.setValue(aceLastSessionCode);
+  }
+
   editor.setOptions({
                      enableBasicAutocompletion: true,
+                     wrapBehavioursEnabled: false,
                     });
+
+  editor.session.on('change', function (delta) {
+   // delta.start, delta.end, delta.lines, delta.action
+   localStorage.aceLastSessionCode = editor.session.getValue();
+  });
+
+  document.getElementById('btn_test')?.addEventListener('click', (e) => {
+   // beautify.beautify(editor.session);
+   // console.log(editor.getCopyText());
+   // console.log(editor.session.getValue());
+   // console.log(editor.getOptions());
+   // editor.session.foldAll();
+   // editor.session.unfold();
+  });
 
   btn_settings.addEventListener('click', (e) => {
    editor.showSettingsMenu();
 
-   ace_settingsmenu = document.getElementById('ace_settingsmenu');
+   aceMenuSettings = document.getElementById('ace_settingsmenu');
 
-   ace_settingsmenu.style.fontSize = '12px';
-   ace_settingsmenu.querySelectorAll('input[type=number]').forEach((elem) => {
+   aceMenuSettings.style.fontSize = '12px';
+   aceMenuSettings.querySelectorAll('input[type=number]').forEach((elem) => {
     elem.style.width = '4rem';
    });
 
    setTimeout(() => {
     document.documentElement.addEventListener('click', (e) => {
-     if (!e.target.contains(ace_settingsmenu)) return;
+     if (!e.target.contains(aceMenuSettings)) return;
 
      aceMenuOpts = editor.getOptions();
      localStorage.aceMenuOpts = JSON.stringify(aceMenuOpts);
@@ -112,7 +169,7 @@
    }
   });
 
-  document.getElementById('btn_github').addEventListener('click', () =>{
+  document.getElementById('btn_github').addEventListener('click', () => {
    window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_id_ps_console");
   });
 
