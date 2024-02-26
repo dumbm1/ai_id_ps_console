@@ -2,215 +2,242 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
 (function () {
- 'use strict';
+  'use strict';
 
- const csInterface = new CSInterface();
+  const csInterface = new CSInterface();
 
- init();
+  init();
 
- function init() {
+  function init() {
 
-  themeManager.init();
-  loadJSX("json2.js");
+    themeManager.init();
+    loadJSX("json2.js");
 
-  // localStorage.clear();
+    // localStorage.clear();
 
-  const btn_settings = document.getElementById('btn_settings');
+    const appId      = csInterface.getHostEnvironment().appId,
+          appVersion = csInterface.getHostEnvironment().appVersion;
 
-  let aceMenuSettings;
+    // console.log(appId == 'ILST', +appVersion.slice(0, 2));
 
-  let aceMenuOpts;
-  let aceLastSessionCode;
+    const btn_settings = document.getElementById('btn_settings');
 
-  if (localStorage.aceMenuOpts) {
-   aceMenuOpts = localStorage.aceMenuOpts;
-   aceLastSessionCode = localStorage.aceLastSessionCode;
-  }
+    let aceMenuSettings;
 
-  ace.require("ace/ext/language_tools");
-  const reformateCode = ace.require('ace/ext/beautify');
-  const aceMenu = ace.require('ace/ext/settings_menu');
+    let aceMenuOpts;
+    let aceLastSessionCode;
 
-  const editor = ace.edit("editor");
+    if (localStorage.aceMenuOpts) {
+      aceMenuOpts = localStorage.aceMenuOpts;
+      aceLastSessionCode = localStorage.aceLastSessionCode;
+    }
 
-  if (!aceMenuOpts) {
-   editor.setTheme("ace/theme/gruvbox");
-   editor.session.setMode("ace/mode/javascript");
-  }
+    ace.require("ace/ext/language_tools");
+    const reformateCode = ace.require('ace/ext/beautify');
+    const aceMenu = ace.require('ace/ext/settings_menu');
 
-  aceMenu.init(editor);
+    const editor = ace.edit("editor");
 
-  editor.commands.addCommand({
-                              name: "beautify",
-                              description: "Format selection (Beautify)",
-                              exec: function (editor) {
-                               reformateCode.beautify(editor.session);
-                              },
-                              bindKey: "Ctrl-Alt-L",
-                             });
+    if (!aceMenuOpts) {
+      editor.setTheme("ace/theme/gruvbox");
+      editor.session.setMode("ace/mode/javascript");
+    }
 
- editor.commands.addCommand({
-                              name: "foldAll",
-                              description: "Fold all code",
-                              exec: function (editor) {
-                               editor.session.foldAll();
-                              },
-                              bindKey: "Ctrl-Shift--",
-                             });
+    aceMenu.init(editor);
 
-  editor.commands.addCommand({
-                              name: "unfold",
-                              description: "Unfold all code",
-                              exec: function (editor) {
-                               editor.session.unfold();
-                              },
-                              bindKey: "Ctrl-Shift-=",
-                             });
+    editor.commands.addCommand({
+                                 name: "beautify",
+                                 description: "Format selection (Beautify)",
+                                 exec: function (editor) {
+                                   reformateCode.beautify(editor.session);
+                                 },
+                                 bindKey: "Ctrl-Alt-L",
+                               });
 
-  if (aceMenuOpts) {
-   editor.setOptions(JSON.parse(aceMenuOpts));
-  }
+    editor.commands.addCommand({
+                                 name: "foldAll",
+                                 description: "Fold all code",
+                                 exec: function (editor) {
+                                   editor.session.foldAll();
+                                 },
+                                 bindKey: "Ctrl-Shift--",
+                               });
 
-  if (aceLastSessionCode) {
-   editor.session.setValue(aceLastSessionCode);
-  }
+    editor.commands.addCommand({
+                                 name: "unfold",
+                                 description: "Unfold all code",
+                                 exec: function (editor) {
+                                   editor.session.unfold();
+                                 },
+                                 bindKey: "Ctrl-Shift-=",
+                               });
 
-  editor.setOptions({
-                     enableBasicAutocompletion: true,
-                     wrapBehavioursEnabled: false,
-                    });
+    if (aceMenuOpts) {
+      editor.setOptions(JSON.parse(aceMenuOpts));
+    }
 
-  editor.session.on('change', function (delta) {
-   // delta.start, delta.end, delta.lines, delta.action
-   localStorage.aceLastSessionCode = editor.session.getValue();
-  });
+    if (aceLastSessionCode) {
+      editor.session.setValue(aceLastSessionCode);
+    }
 
-  document.getElementById('btn_test')?.addEventListener('click', (e) => {
-   // beautify.beautify(editor.session);
-   // console.log(editor.getCopyText());
-   // console.log(editor.session.getValue());
-   // console.log(editor.getOptions());
-   // editor.session.foldAll();
-   // editor.session.unfold();
-  });
+    editor.setOptions({
+                        enableBasicAutocompletion: true,
+                        wrapBehavioursEnabled: false,
+                      });
 
-  btn_settings.addEventListener('click', (e) => {
-   editor.showSettingsMenu();
-
-   aceMenuSettings = document.getElementById('ace_settingsmenu');
-
-   aceMenuSettings.style.fontSize = '12px';
-   aceMenuSettings.querySelectorAll('input[type=number]').forEach((elem) => {
-    elem.style.width = '4rem';
-   });
-
-   setTimeout(() => {
-    document.documentElement.addEventListener('click', (e) => {
-     if (!e.target.contains(aceMenuSettings)) return;
-
-     aceMenuOpts = editor.getOptions();
-     localStorage.aceMenuOpts = JSON.stringify(aceMenuOpts);
+    editor.session.on('change', function (delta) {
+      // delta.start, delta.end, delta.lines, delta.action
+      localStorage.aceLastSessionCode = editor.session.getValue();
 
     });
-   }, 300);
 
-  });
+    if (appId == 'ILST' && +appVersion.slice(0, 2) < 26) { // bug with editor  in some old Illustrator versions
+      window.addEventListener('resize', () => {
+        editor.setTheme(editor.getOptions().theme);
+      });
 
-  document.getElementById('editor').addEventListener('keyup', (e) => {
-   if (e.ctrlKey && e.keyCode == 13) {
-    let fld_return = document.getElementById('output_field');
-    if (!fld_return.value) {
-     fld_return.value = evalInChrome(editor.getValue());
-     fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
-    } else {
-     fld_return.value += '\n' + evalInChrome(editor.getValue());
-     fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+      editor.commands.addCommand({
+                                   name: "redraw-editor",
+                                   description: "Redraw editor via change theme to currrent theme",
+                                   exec: function (editor) {
+                                     editor.setTheme(editor.getOptions().theme);
+                                   },
+                                   bindKey: "Ctrl-Shift-R",
+                                 });
+
+      editor.setOptions({
+                          highlightSelectedWord: false, // if 'true' - has wrong and strange behavior on some old Illustrator versions
+                        });
     }
-    editor.focus();
-   } else if ((e.metaKey || e.altKey) && e.keyCode == 13) {
-    let elem_return = document.getElementById('output_field');
-    evalInAi(editor.getValue(), elem_return);
-    editor.focus();
-   }
-  });
 
-  document.getElementById('btn_eval_js').addEventListener('click', (e) => {
-   let fld_return = document.getElementById('output_field');
-   if (!fld_return.value) {
-    fld_return.value = evalInChrome(editor.getValue());
-    fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
-   } else {
-    fld_return.value += '\n' + evalInChrome(editor.getValue());
-    fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
-   }
-   editor.focus();
-  });
+    /*    document.getElementById('btn_test').addEventListener('click', (e) => {
+     // beautify.beautify(editor.session);
+     // console.log(editor.getCopyText());
+     // console.log(editor.session.getValue());
+     // console.log(editor.getOptions());
+     // editor.session.foldAll();
+     // editor.session.unfold();
+     let aceCurrentTheme = editor.getOptions().theme;
+     editor.setTheme(aceCurrentTheme);
+     });*/
 
-  document.getElementById('btn_eval_jsx').addEventListener('click', (e) => {
-   let elem_return = document.getElementById('output_field');
-   evalInAi(editor.getValue(), elem_return);
-   editor.focus();
-  });
+    btn_settings.addEventListener('click', (e) => {
+      editor.showSettingsMenu();
 
-  document.getElementById('btn_clear_output').addEventListener('click', (e) => {
-   const output_field = document.getElementById('output_field');
-   output_field.value = '';
-  });
+      aceMenuSettings = document.getElementById('ace_settingsmenu');
 
-  document.getElementById('btn_refresh').addEventListener('click', () => location.reload());
+      aceMenuSettings.style.fontSize = '12px';
+      aceMenuSettings.querySelectorAll('input[type=number]').forEach((elem) => {
+        elem.style.width = '4rem';
+      });
 
-  document.getElementById('btn_reset_jsx').addEventListener('click', () => {
-   let apiVersion = csInterface.getCurrentApiVersion();
-   if (apiVersion.major > 6) {
-    csInterface.requestOpenExtension('js_console_dialog');
-    csInterface.closeExtension();
-   } else {
-    csInterface.closeExtension();
-   }
-  });
+      setTimeout(() => {
+        document.documentElement.addEventListener('click', (e) => {
+          if (!e.target.contains(aceMenuSettings)) return;
 
-  document.getElementById('btn_github').addEventListener('click', () => {
-   window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_id_ps_console");
-  });
+          aceMenuOpts = editor.getOptions();
+          localStorage.aceMenuOpts = JSON.stringify(aceMenuOpts);
 
- }
+        });
+      }, 300);
 
- function loadJSX(fileName) {
-  let extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) + "/jsx/";
-  csInterface.evalScript('$.evalFile("' + extensionRoot + fileName + '")');
- }
+    });
 
- /**
-  * Eval javascript string on chrome browser
-  *
-  * @param {String} str - the javascript code string
-  * @return {String} res - the evaluation result or error message
-  * */
- function evalInChrome(str) {
-  let res = '';
-  try {
-   res = eval(str);
-  } catch (e) {
-   res = e/*.message + ', ' + e.line*/;
+    document.getElementById('editor').addEventListener('keyup', (e) => {
+      if (e.ctrlKey && e.keyCode == 13) {
+        let fld_return = document.getElementById('output_field');
+        if (!fld_return.value) {
+          fld_return.value = evalInChrome(editor.getValue());
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        } else {
+          fld_return.value += '\n' + evalInChrome(editor.getValue());
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        }
+        editor.focus();
+      } else if ((e.metaKey || e.altKey) && e.keyCode == 13) {
+        let elem_return = document.getElementById('output_field');
+        evalInAi(editor.getValue(), elem_return);
+        editor.focus();
+      }
+    });
+
+    document.getElementById('btn_eval_js').addEventListener('click', (e) => {
+      let fld_return = document.getElementById('output_field');
+      if (!fld_return.value) {
+        fld_return.value = evalInChrome(editor.getValue());
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+      } else {
+        fld_return.value += '\n' + evalInChrome(editor.getValue());
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+      }
+      editor.focus();
+    });
+
+    document.getElementById('btn_eval_jsx').addEventListener('click', (e) => {
+      let elem_return = document.getElementById('output_field');
+      evalInAi(editor.getValue(), elem_return);
+      editor.focus();
+    });
+
+    document.getElementById('btn_clear_output').addEventListener('click', (e) => {
+      const output_field = document.getElementById('output_field');
+      output_field.value = '';
+    });
+
+    document.getElementById('btn_refresh').addEventListener('click', () => location.reload());
+
+    document.getElementById('btn_reset_jsx').addEventListener('click', () => {
+      let apiVersion = csInterface.getCurrentApiVersion();
+      if (apiVersion.major > 6) {
+        csInterface.requestOpenExtension('js_console_dialog');
+        csInterface.closeExtension();
+      } else {
+        csInterface.closeExtension();
+      }
+    });
+
+    document.getElementById('btn_github').addEventListener('click', () => {
+      window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_id_ps_console");
+    });
+
   }
-  return '[chrome]: ' + res;
- }
 
- /**
-  * Eval javascript string on chrome browser
-  *
-  * @param {String} str - the javascript code string
-  * */
- function evalInAi(str, fld_return) {
-  csInterface.evalScript('evalStr(' + JSON.stringify(str) + ')', function (res) {
-   if (!fld_return.value) {
-    fld_return.value = '[jsx]: ' + res;
-    fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
-   } else {
-    fld_return.value += '\n' + '[jsx]: ' + res;
-    fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
-   }
-  });
- }
+  function loadJSX(fileName) {
+    let extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) + "/jsx/";
+    csInterface.evalScript('$.evalFile("' + extensionRoot + fileName + '")');
+  }
+
+  /**
+   * Eval javascript string on chrome browser
+   *
+   * @param {String} str - the javascript code string
+   * @return {String} res - the evaluation result or error message
+   * */
+  function evalInChrome(str) {
+    let res = '';
+    try {
+      res = eval(str);
+    } catch (e) {
+      res = e/*.message + ', ' + e.line*/;
+    }
+    return '[chrome]: ' + res;
+  }
+
+  /**
+   * Eval javascript string on chrome browser
+   *
+   * @param {String} str - the javascript code string
+   * */
+  function evalInAi(str, fld_return) {
+    csInterface.evalScript('evalStr(' + JSON.stringify(str) + ')', function (res) {
+      if (!fld_return.value) {
+        fld_return.value = '[jsx]: ' + res;
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+      } else {
+        fld_return.value += '\n' + '[jsx]: ' + res;
+        fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+      }
+    });
+  }
 
 }());
