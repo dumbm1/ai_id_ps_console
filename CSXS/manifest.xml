@@ -58,7 +58,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>js console 1.0.0</Menu>
+                    <Menu>js console 1.0.1</Menu>
                     <Geometry>
                         <Size>
                             <Height>260</Height>
