@@ -20,3 +20,9 @@
 .main-menu__inner-group_gap-x-3 {
  gap: .8rem;
 }
+
+.main-menu__icons {
+ position: absolute;
+ right: 0;
+ top:0;
+}
