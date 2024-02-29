@@ -1,111 +1,80 @@
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <link id="hostStyle" rel="stylesheet" href="assets/css/main.css"/>
-        <title>console</title>
+	<head>
+		<meta charset="utf-8">
+		<link id="hostStyle" rel="stylesheet" href="assets/css/main.css"/>
+		<title>console</title>
 
-    </head>
+	</head>
 
-    <body class="hostElt">
+	<body class="hostElt">
 
-        <div class="console">
+		<div class="console">
+			<button style="display: none; position: absolute; top: .5rem; right: .5rem; z-index: 2000" id="btn_test" class="button button_icon-only" title="">
+				<svg class="icon" style="color: orangered; height: 2rem; width: 2rem;">
+					<use href="assets/img/icons-sprite.svg#practice-2"></use>
+				</svg>left only icons
+			</button>
 
-            <div id="editor"></div>
+			<div id="editor"></div>
 
-            <!--            <div class="main-menu">-->
+			<div class="main-menu">
 
-            <!--                <div class="main-menu__group">-->
-            <!--                    <button id="btn_eval_js" class="button button_icon_chrome hostButton" title="">Run js</button>-->
-            <!--                    <button id="btn_eval_jsx" class="button button_icon_es hostButton" title="">Run jsx</button>-->
-            <!--&lt;!&ndash;                    <button id="btn_test" class="button hostButton" title="">!TEST!</button>&ndash;&gt;-->
-            <!--                </div>-->
+				<div class="main-menu__icons">
 
-            <!--                <div class="main-menu__group">-->
+					<button id="btn_eval_js" class="button button_icon-only">
+						<img src="assets/img/chrome.svg" class="icon" alt="Run js">
+					</button>
+					<button id="btn_eval_jsx" class="button button_icon-only">
+						<img src="assets/img/es.svg" class="icon" alt="Run jsx">
+					</button>
 
-            <!--                    <button id="btn_refresh" class="button button_icon_sprite hostButton">-->
-            <!--                        <svg class="icon icon_button">-->
-            <!--                            <use href="assets/img/icons-sprite.svg#refresh"></use>-->
-            <!--                        </svg>-->
-            <!--                        Refresh-->
-            <!--                    </button>-->
-            <!--                    <button id="btn_reset_jsx" class="button button_icon_sprite hostButton">-->
-            <!--                        <svg class="icon icon_button">-->
-            <!--                            <use href="assets/img/icons-sprite.svg#reset-jsx"></use>-->
-            <!--                        </svg>-->
-            <!--                        Reset-->
-            <!--                    </button>-->
-            <!--                    <button id="btn_settings" class="button button_icon_sprite hostButton">-->
-            <!--                        <svg class="icon icon_button">-->
-            <!--                            <use href="assets/img/icons-sprite.svg#settings"></use>-->
-            <!--                        </svg>-->
-            <!--                        Settings-->
-            <!--                    </button>-->
-            <!--                    <button id="btn_github" class="button button_icon_sprite hostButton">-->
-            <!--                        <svg class="icon icon_button">-->
-            <!--                            <use href="assets/img/icons-sprite.svg#github"></use>-->
-            <!--                        </svg>-->
-            <!--                        Github-->
-            <!--                    </button>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <div class="main-menu">
+					<button id="btn_refresh" class="button button_icon-only">
+						<svg class="icon ">
+							<use href="assets/img/icons-sprite.svg#refresh"></use>
+						</svg>
+					</button>
+					<button id="btn_reset_jsx" class="button button_icon-only">
+						<svg class="icon">
+							<use href="assets/img/icons-sprite.svg#reset-jsx"></use>
+						</svg>
+					</button>
+					<button id="btn_settings" class="button button_icon-only">
+						<svg class="icon">
+							<use href="assets/img/icons-sprite.svg#settings"></use>
+						</svg>
+					</button>
+					<button id="btn_github" class="button button_icon-only">
+						<svg class="icon">
+							<use href="assets/img/icons-sprite.svg#github"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
 
-                <div class="main-menu__group">
 
-                    <button id="btn_eval_js" class="button button_icon_chrome hostButton" title="">Run js</button>
-                    <button id="btn_eval_jsx" class="button button_icon_es hostButton" title="">Run jsx</button>
-                    <!--                    <button id="btn_test" class="button hostButton" title="">!TEST!</button>-->
 
-                    <button id="btn_refresh" class="button button_icon_sprite hostButton">
-                        <svg class="icon icon_button">
-                            <use href="assets/img/icons-sprite.svg#refresh"></use>
-                        </svg>
-                        Refresh
-                    </button>
-                    <button id="btn_reset_jsx" class="button button_icon_sprite hostButton">
-                        <svg class="icon icon_button">
-                            <use href="assets/img/icons-sprite.svg#reset-jsx"></use>
-                        </svg>
-                        Reset
-                    </button>
-                    <button id="btn_settings" class="button button_icon_sprite hostButton">
-                        <svg class="icon icon_button">
-                            <use href="assets/img/icons-sprite.svg#settings"></use>
-                        </svg>
-                        Settings
-                    </button>
-                    <button id="btn_github" class="button button_icon_sprite hostButton">
-                        <svg class="icon icon_button">
-                            <use href="assets/img/icons-sprite.svg#github"></use>
-                        </svg>
-                        Github
-                    </button>
+			<details class="output" open>
+				<summary class="output__title">
+					Output
+				</summary>
 
-                </div>
-            </div>
+				<svg id="btn_clear_output" class="icon output__icon_clear">
+					<use href="assets/img/icons-sprite.svg#clear-output"></use>
+				</svg>
 
-            <details class="output" open>
-                <summary class="output__title">
-                    Console output
-                </summary>
+				<textarea id="output_field" rows="5" class="hostTextarea output__field" disabled></textarea>
 
-                <svg id="btn_clear_output" class="icon output__icon_clear">
-                    <use href="assets/img/icons-sprite.svg#clear-output"></use>
-                </svg>
+			</details>
+		</div>
 
-                <textarea id="output_field" rows="5" class="hostTextarea output__field" disabled></textarea>
-
-            </details>
-        </div>
-
-        <script src="assets/js/CSInterface.js"></script>
-        <script src="assets/js/themeManager.js"></script>
-        <script src="assets/js/libs/ace/ace.js"></script>
-        <script src="assets/js/libs/ace/ext-language_tools.js"></script>
-        <script src="assets/js/libs/ace/ext-settings_menu.js"></script>
-        <script src="assets/js/libs/ace/ext-beautify.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+		<script src="assets/js/CSInterface.js"></script>
+		<script src="assets/js/themeManager.js"></script>
+		<script src="assets/js/libs/ace/ace.js"></script>
+		<script src="assets/js/libs/ace/ext-language_tools.js"></script>
+		<script src="assets/js/libs/ace/ext-settings_menu.js"></script>
+		<script src="assets/js/libs/ace/ext-beautify.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
 </html>
 

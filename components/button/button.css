@@ -7,12 +7,19 @@
  position: relative;
 }
 
+.button_icon-only {
+ border: none;
+ background: none;
+ padding: 0;
+ margin: 0;
+}
+
 .button_text-only {
  /*border: none;*/
  background: none;
 }
 
-.button_icon_sprite{
+.button_icon_sprite {
  padding-left: 2rem;
 }
 
